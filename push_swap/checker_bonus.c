@@ -6,25 +6,15 @@
 /*   By: dkpg-md- <dkpg-md-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:00:00 by dkpg-md-          #+#    #+#             */
-/*   Updated: 2026/02/25 02:51:46 by dkpg-md-         ###   ########.fr       */
+/*   Updated: 2026/02/25 03:40:33 by dkpg-md-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	exec_instruction(char *line, t_stack **a, t_stack **b)
+static int	rules_2(char *line, t_stack **a, t_stack **b)
 {
-	if (!ft_strcmp(line, "sa\n"))
-		do_sa(a);
-	else if (!ft_strcmp(line, "sb\n"))
-		do_sb(b);
-	else if (!ft_strcmp(line, "ss\n"))
-		do_ss(a, b);
-	else if (!ft_strcmp(line, "pa\n"))
-		do_pa(a, b);
-	else if (!ft_strcmp(line, "pb\n"))
-		do_pb(a, b);
-	else if (!ft_strcmp(line, "ra\n"))
+	if (!ft_strcmp(line, "ra\n"))
 		do_ra(a);
 	else if (!ft_strcmp(line, "rb\n"))
 		do_rb(b);
@@ -38,6 +28,23 @@ static int	exec_instruction(char *line, t_stack **a, t_stack **b)
 		do_rrr(a, b);
 	else
 		return (0);
+	return (1);
+}
+
+static int	rules(char *line, t_stack **a, t_stack **b)
+{
+	if (!ft_strcmp(line, "sa\n"))
+		do_sa(a);
+	else if (!ft_strcmp(line, "sb\n"))
+		do_sb(b);
+	else if (!ft_strcmp(line, "ss\n"))
+		do_ss(a, b);
+	else if (!ft_strcmp(line, "pa\n"))
+		do_pa(a, b);
+	else if (!ft_strcmp(line, "pb\n"))
+		do_pb(a, b);
+	else
+		return (rules_2(line, a, b));
 	return (1);
 }
 
@@ -70,36 +77,41 @@ static char	*get_line(void)
 	return (line);
 }
 
-int	main(int ac, char **av)
+static int	run_checker(t_stack **a, t_stack **b)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
 	char	*line;
 
-	if (ac < 2)
-		return (0);
-	if (!is_correct_input(av))
-	{
-		ft_putstr("Error\n");
-		return (1);
-	}
-	stack_a = fill_stack_values(ac, av);
-	stack_b = NULL;
 	while (1)
 	{
 		line = get_line();
 		if (!line)
 			break ;
-		if (!exec_instruction(line, &stack_a, &stack_b))
+		if (!exec_instruction(line, a, b))
 		{
 			free(line);
-			free_stack(&stack_a);
-			free_stack(&stack_b);
+			free_stack(a);
+			free_stack(b);
 			ft_putstr("Error\n");
-			return (1);
+			return (0);
 		}
 		free(line);
 	}
+	return (1);
+}
+
+int	main(int ac, char **av)
+{
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+
+	if (ac < 2)
+		return (0);
+	if (!is_correct_input(av))
+		return (ft_putstr("Error\n"), 1);
+	stack_a = fill_stack_values(ac, av);
+	stack_b = NULL;
+	if (!run_checker(&stack_a, &stack_b))
+		return (1);
 	if (is_sorted(stack_a) && !stack_b)
 		ft_putstr("OK\n");
 	else
