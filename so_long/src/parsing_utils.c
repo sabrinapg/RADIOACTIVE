@@ -47,12 +47,12 @@ int	is_unreachable(char c)
 {
 	if (c == 'C')
 	{
-		printf("Error\nNot all collectibles are reachable\n");
+		ft_printf("Error\nNot all collectibles are reachable\n");
 		return (1);
 	}
 	if (c == 'E')
 	{
-		printf("Error\nExit is not reachable\n");
+		ft_printf("Error\nExit is not reachable\n");
 		return (1);
 	}
 	return (0);

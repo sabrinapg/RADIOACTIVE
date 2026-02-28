@@ -48,7 +48,7 @@ int	check_walls(char **map, int width, int height)
 			{
 				if (map[i][j] != '1')
 				{
-					printf("Error\nMap not surrounded by walls\n");
+					ft_printf("Error\nMap not surrounded by walls\n");
 					return (0);
 				}
 			}

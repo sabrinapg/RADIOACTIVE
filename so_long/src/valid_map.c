@@ -18,7 +18,7 @@ int	is_rectangular(char **map)
 		current_len = get_line_length(map[i]);
 		if (current_len != first_len)
 		{
-			printf("Error\nMap is not rectangular\n");
+			ft_printf("Error\nMap is not rectangular\n");
 			return (0);
 		}
 		i++;
@@ -30,19 +30,19 @@ int	validate_counts(t_map *map_data)
 {
 	if (map_data->P != 1)
 	{
-		printf("Error\nMap must have exactly 1 player (found %d)\n",
+		ft_printf("Error\nMap must have exactly 1 player (found %d)\n",
 			map_data->P);
 		return (0);
 	}
 	if (map_data->E != 1)
 	{
-		printf("Error\nMap must have exactly 1 exit (found %d)\n",
+		ft_printf("Error\nMap must have exactly 1 exit (found %d)\n",
 			map_data->E);
 		return (0);
 	}
 	if (map_data->C < 1)
 	{
-		printf("Error\nMap must have at least 1 collectible (found %d)\n",
+		ft_printf("Error\nMap must have at least 1 collectible (found %d)\n",
 			map_data->C);
 		return (0);
 	}
@@ -63,7 +63,7 @@ int	check_valid_chars(char **map)
 		{
 			if (!is_valid_char(map[i][j]))  // ← Use the helper function!
 			{
-				printf("Error\nInvalid character in map: '%c'\n", map[i][j]);
+				ft_printf("Error\nInvalid character in map: '%c'\n", map[i][j]);
 				return (0);
 			}
 			j++;

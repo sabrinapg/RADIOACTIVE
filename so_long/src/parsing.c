@@ -35,7 +35,7 @@ static int	validate_path(char **map, int width, int height)
 	map_copy = copy_map(map, height);
 	if (!map_copy)
 	{
-		printf("Error\nMemory allocation failed\n");
+		ft_printf("Error\nMemory allocation failed\n");
 		return (0);
 	}
 	find_player(map_copy, &player_x, &player_y);
@@ -49,7 +49,7 @@ static int	validate_basic_checks(char **map)
 {
 	if (!map || !map[0])
 	{
-		printf("Error\nEmpty map\n");
+		ft_printf("Error\nEmpty map\n");
 		return (0);
 	}
 	if (!check_valid_chars(map))
@@ -63,7 +63,7 @@ static int	validate_dimensions(int width, int height)
 {
 	if (width < 3 || height < 3)
 	{
-		printf("Error\nMap too small (minimum 3x3)\n");
+		ft_printf("Error\nMap too small (minimum 3x3)\n");
 		return (0);
 	}
 	return (1);
@@ -86,7 +86,7 @@ int	parse_map(char **map, t_map *map_data)
 	if (!validate_path(map, width, height))
 		return (0);
 	ft_printf("BEFORE map_data->map: P=%d E=%d C=%d\n", map_data->P, map_data->E, map_data->C);
-	printf("map_data=%p &map_data->map=%p\n", (void*)map_data, (void*)&map_data->map);
+	ft_printf("map_data=%p &map_data->map=%p\n", (void*)map_data, (void*)&map_data->map);
 	map_data->map = map;
 	ft_printf("AFTER map_data->map: P=%d E=%d C=%d\n", map_data->P, map_data->E, map_data->C);
 //	ft_printf("Map validation successful!\n");

@@ -22,11 +22,16 @@
 # include "../include/ft_printf/ft_printf.h"
 # include "../include/GNL/get_next_line.h"
 
-# define UP 	111
-# define DOWN	116
+# define UP 	65362
+# define DOWN	65364
 # define LEFT	65361
 # define RIGHT	65363
 # define ESC	65307
+# define K_Q	113
+# define K_W	119
+# define K_A	97
+# define K_D	100
+# define K_S	115
 
 typedef struct s_point
 {
