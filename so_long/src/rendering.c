@@ -54,7 +54,6 @@ static int can_move_to(t_vars *vars, int x, int y)
 	if (!(vars->map->map[y] && vars->map->map[y][x]))
 		return (0);
 	tile = vars->map->map[y][x];
-	ft_printf("tile: %c\n", tile);
 	if (tile == '1')
 		return (0);
 	if (tile == 'E' && vars->collectibles > 0)

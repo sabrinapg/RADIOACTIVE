@@ -180,13 +180,9 @@ int	init_game(t_vars *vars, char **argv)
 
 	i = 0;
 	init_vars(vars);
-	vars->mlx = mlx_init();
-	if (!vars->mlx)
-		return (0);
 	vars->map = malloc(sizeof(t_map));
 	if (!vars->map)
 		return (0);
-	
 	// FIXED: Pass argv[1] directly
 	vars->map->map = load_map(argv[1]);
 	if (!vars->map->map)
@@ -194,6 +190,9 @@ int	init_game(t_vars *vars, char **argv)
 		free(vars->map);
 		return (0);
 	}
+	vars->mlx = mlx_init();
+	if (!vars->mlx)
+		return (0);
 	
 	// DEBUG: Check map right after loading
 	ft_printf("\n=== DEBUG AFTER LOAD_MAP ===\n");
