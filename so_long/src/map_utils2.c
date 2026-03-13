@@ -1,8 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_utils2.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dkpg-md- <dkpg-md-@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/13 15:40:18 by dkpg-md-          #+#    #+#             */
+/*   Updated: 2026/03/13 17:14:40 by dkpg-md-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/ft_printf/ft_printf.h"
 #include "../include/GNL/get_next_line.h"
 #include "../include/so_long.h"
 
-// check if rectangular
 int	is_rectangular(char **map)
 {
 	int	i;
@@ -49,7 +60,6 @@ int	validate_counts(t_map *map_data)
 	return (1);
 }
 
-// check for invalid characters
 int	check_valid_chars(char **map)
 {
 	int	i;
@@ -61,7 +71,7 @@ int	check_valid_chars(char **map)
 		j = 0;
 		while (map[i][j])
 		{
-			if (!is_valid_char(map[i][j]))  // ← Use the helper function!
+			if (!is_valid_char(map[i][j]))
 			{
 				ft_printf("Error\nInvalid character in map: '%c'\n", map[i][j]);
 				return (0);

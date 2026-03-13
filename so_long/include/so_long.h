@@ -6,7 +6,7 @@
 /*   By: dkpg-md- <dkpg-md-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 13:13:27 by dkpg-md-          #+#    #+#             */
-/*   Updated: 2026/02/25 23:33:39 by dkpg-md-         ###   ########.fr       */
+/*   Updated: 2026/03/13 17:40:48 by dkpg-md-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define SO_LONG_H
 
 # include <mlx.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>
@@ -91,10 +90,20 @@ void	free_images(t_vars *vars);
 // game.c
 int	load_images(t_vars *vars);
 int	render_map(t_vars *vars);
+
+/* init.c */
+int	load_images(t_vars *vars);
 int	init_game(t_vars *vars, char **argv);
+
+// init_utils.c
+void	init_vars(t_vars *vars);
 
 // game_utils.c
 void	*get_tile_image(t_vars *vars, char tile);
+void	destroy_assets(t_vars *vars);
+int	close_window(t_vars *vars);
+void	update_game(t_vars *vars, int new_x, int new_y);
+int	key_hook(int keycode, t_vars *vars);
 
 /* map.c */
 void	get_map_dimensions(char **map, int *width, int *height);
@@ -102,7 +111,7 @@ int		check_walls(char **map, int width, int height);
 int		count_elements(char **map, t_map *map_data);
 char	**copy_map(char **map, int height);
 
-/* valid_map.c */
+/* map_utils2.c */
 int		is_rectangular(char **map);
 int		validate_counts(t_map *map_data);
 int		check_valid_chars(char **map);

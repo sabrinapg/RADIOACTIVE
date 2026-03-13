@@ -6,7 +6,7 @@
 /*   By: dkpg-md- <dkpg-md-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 21:18:12 by dkpg-md-          #+#    #+#             */
-/*   Updated: 2026/02/05 06:07:08 by dkpg-md-         ###   ########.fr       */
+/*   Updated: 2026/03/13 16:50:39 by dkpg-md-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,25 +69,3 @@ char	*get_next_line(int fd)
 	free(line);
 	return (result);
 }
-
-/*
-#include <fcntl.h>
-#include <stdio.h>
-int	main(void)
-{
-	int		fd;
-	char	*line;
-
-	fd = open("test.txt", O_RDONLY);
-	while (1)
-	{
-		line = get_next_line(fd);
-		if (!line)
-			break ;
-		printf("%s", line);
-		free(line);
-	}
-	close(fd);
-	return (0);
-}
-*/

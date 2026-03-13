@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing_utils.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dkpg-md- <dkpg-md-@student.42berlin.d      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/13 15:39:15 by dkpg-md-          #+#    #+#             */
+/*   Updated: 2026/03/13 15:43:43 by dkpg-md-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/GNL/get_next_line.h"
 #include "../include/so_long.h"
 
@@ -9,13 +21,13 @@ void	flood_fill(char **map, int start_x, int start_y, int w, int h)
 
 	stack = init_flood_stack(w, h, start_x, start_y);
 	if (!stack)
-		return;
+		return ;
 	size = 1;
 	while (size > 0)
 	{
 		cur = stack[--size];
 		if (!is_valid_cell(map, cur, w, h))
-			continue;
+			continue ;
 		map[cur.y][cur.x] = 'V';
 		push_neighbors(stack, &size, cur, w * h);
 	}
@@ -25,7 +37,7 @@ void	flood_fill(char **map, int start_x, int start_y, int w, int h)
 void	push_neighbors(t_point *stack, int *size, t_point cur, int cap)
 {
 	if (*size + 4 >= cap)
-		return;
+		return ;
 	stack[(*size)++] = (t_point){cur.x + 1, cur.y};
 	stack[(*size)++] = (t_point){cur.x - 1, cur.y};
 	stack[(*size)++] = (t_point){cur.x, cur.y + 1};

@@ -6,10 +6,11 @@
 /*   By: dkpg-md- <dkpg-md-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 11:58:07 by dkpg-md-          #+#    #+#             */
-/*   Updated: 2026/02/25 23:28:05 by dkpg-md-         ###   ########.fr       */
+/*   Updated: 2026/03/13 17:11:58 by dkpg-md-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../include/ft_printf/ft_printf.h"
 #include "../include/GNL/get_next_line.h"
 #include "../include/so_long.h"
 
@@ -100,7 +101,6 @@ static char	*copy_line(char *line)
 	return (copy);
 }
 
-// create a copy of the map for flood fill
 char	**copy_map(char **map, int height)
 {
 	char	**copy;

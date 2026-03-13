@@ -28,10 +28,13 @@ SRC_FILES = main.c \
             rendering.c \
             parsing.c \
             parsing_utils.c \
-            valid_map.c \
             map.c \
             map_utils.c \
-            free_map.c
+            map_utils2.c \
+            free_map.c \
+            init.c \
+            init_utils.c \
+            load_map.c
 
 SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJ = $(SRC:.c=.o)

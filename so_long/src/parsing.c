@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dkpg-md- <dkpg-md-@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/13 15:38:52 by dkpg-md-          #+#    #+#             */
+/*   Updated: 2026/03/13 17:25:07 by dkpg-md-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/GNL/get_next_line.h"
 #include "../include/so_long.h"
 
-// find player position
 static void	find_player(char **map, int *x, int *y)
 {
 	int	i;
@@ -17,7 +28,7 @@ static void	find_player(char **map, int *x, int *y)
 			{
 				*x = j;
 				*y = i;
-				return;
+				return ;
 			}
 			j++;
 		}
@@ -85,10 +96,6 @@ int	parse_map(char **map, t_map *map_data)
 		return (0);
 	if (!validate_path(map, width, height))
 		return (0);
-	ft_printf("BEFORE map_data->map: P=%d E=%d C=%d\n", map_data->P, map_data->E, map_data->C);
-	ft_printf("map_data=%p &map_data->map=%p\n", (void*)map_data, (void*)&map_data->map);
 	map_data->map = map;
-	ft_printf("AFTER map_data->map: P=%d E=%d C=%d\n", map_data->P, map_data->E, map_data->C);
-//	ft_printf("Map validation successful!\n");
 	return (1);
 }
