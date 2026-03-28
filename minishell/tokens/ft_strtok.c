@@ -60,7 +60,7 @@ static char	**fill_tokens(char **tokens, const char *s, const char *c)
 			start = i;
 			while (s[i] && s[i] != *c)
 				i++;
-			tokens[idx] = ft_substr(c, start, i - start);
+			tokens[idx] = ft_substr(s, start, i - start);
 			if (!tokens[idx])
 				return (free_tokens(tokens, idx), NULL);
 			idx++;	
