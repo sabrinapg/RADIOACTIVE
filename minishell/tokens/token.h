@@ -13,13 +13,30 @@
 #ifndef TOKEN_H
 # define TOKEN_H
 
-# include <mlx.h>
-# include <stdlib.h>
-# include <fcntl.h>
-# include <unistd.h>
-# include "../include/LIBFT/libft.h"
-# include "../include/ft_printf/ft_printf.h"
-# include "../include/GNL/get_next_line.h"
+typedef enum e_type
+{
+	TOKEN_WORD,
+	TOKEN_PIPE,
+	TOKEN_REDIR_IN,
+	TOKEN_REDIR_OUT,
+	TOKEN_HEREDOC,
+}	t_type;
 
+typedef struct s_token
+{
+	char	*value;
+	t_type	type;
+	struct s_token *next;
+}	t_token;
+
+typedef struct s_cmd
+{
+	char	**args;
+	char	*infile;
+	char	*outfile;
+	int		append;
+	char	*heredoc;
+	struct s_cmd	*next;
+}	t_cmd;
 
 #endif
