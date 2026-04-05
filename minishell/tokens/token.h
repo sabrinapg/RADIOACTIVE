@@ -19,6 +19,7 @@ typedef enum e_type
 	TOKEN_PIPE,
 	TOKEN_REDIR_IN,
 	TOKEN_REDIR_OUT,
+	TOKEN_REDIR_APP,
 	TOKEN_HEREDOC,
 }	t_type;
 
@@ -38,5 +39,8 @@ typedef struct s_cmd
 	char	*heredoc;
 	struct s_cmd	*next;
 }	t_cmd;
+
+t_token *ft_get_operator(const char *s, int *i);
+t_token *ft_lexer(const char *s);
 
 #endif
