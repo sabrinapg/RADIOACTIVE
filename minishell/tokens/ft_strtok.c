@@ -63,7 +63,7 @@ static char	**fill_tokens(char **tokens, const char *s, const char *c)
 			tokens[idx] = ft_substr(s, start, i - start);
 			if (!tokens[idx])
 				return (free_tokens(tokens, idx), NULL);
-			idx++;	
+			idx++;
 		}
 	}
 	return (tokens[idx] = NULL, tokens); 
@@ -72,7 +72,7 @@ static char	**fill_tokens(char **tokens, const char *s, const char *c)
 char	**ft_strtok(const char *s, const char *c)
 {
 	char	**tokens;
-	int	word;
+	int		word;
 
 	if (!s)
 		return (NULL);
